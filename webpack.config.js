@@ -32,11 +32,11 @@ const config = {
         exclude: /node_modules/,
         loader: 'babel'
       },
-      // {
-      //   test: /\.scss$/,
-      //   exclude: /node_modules/,
-      //   loaders: ['style', 'css', 'sass']
-      // },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loaders: ['style', 'css', 'sass']
+      },
       // {
       //   test: /\.css$/,
       //   exclude: /node_modules/,
@@ -50,10 +50,12 @@ const config = {
       {
             test: /\.css$/,
             loader: "style!css"
-        }, {
-            test: /\.scss$/,
-            loader: "style!css!autoprefixer!sass"
-        }, {
+        }, 
+        // {
+        //     test: /\.scss$/,
+        //     loader: "style!css!sass"
+        // }, 
+        {
             test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/],
             loader: 'file?name=fonts/[name].[ext]'
         }

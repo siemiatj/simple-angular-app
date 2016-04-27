@@ -6,6 +6,7 @@ import angularMaterial from 'angular-material';
 
 require('angular-material/angular-material.css');
 require('font-awesome/css/font-awesome.css');
+require('../css/app.scss');
 
 require('./services.es6');
 require('./controllers.es6');
