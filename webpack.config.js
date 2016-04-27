@@ -3,37 +3,32 @@ const webpack           = require('webpack');
 const cwd = process.cwd();
 
 const config = {
-  context: __dirname + "/app",
-  entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    `./app.js`
-  ],
+  entry: {
+    app: './app/js/app.bundle.es6'
+  },
   output: {
     path: path.resolve(__dirname, 'public'),
     publicPath: '/',
     filename: 'bundle.js'
   },
-  resolve: {
-    modulesDirectories: [cwd, 'node_modules'],
-  },
   devServer: {
     contentBase: './public',
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   devtool: 'eval-source-map',
   noInfo: true,
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loader: 'eslint',
-        include: [__dirname],
-        exclude: [path.join(__dirname, './', 'node_modules')]
-      }
-    ],
+    // preLoaders: [
+    //   {
+    //     test: /\.js$/,
+    //     loader: 'eslint',
+    //     include: [__dirname],
+    //     exclude: [path.join(__dirname, './', 'node_modules')]
+    //   }
+    // ],
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.es6?$/,
         exclude: /node_modules/,
         loader: 'babel'
       },
