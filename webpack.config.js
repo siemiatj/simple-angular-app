@@ -32,24 +32,39 @@ const config = {
         exclude: /node_modules/,
         loader: 'babel'
       },
-      {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        loaders: ['style', 'css', 'sass']
-      },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loader: 'style!css!autoprefixer?browsers=last 2 versions'
-      },
+      // {
+      //   test: /\.scss$/,
+      //   exclude: /node_modules/,
+      //   loaders: ['style', 'css', 'sass']
+      // },
+      // {
+      //   test: /\.css$/,
+      //   exclude: /node_modules/,
+      //   loader: 'style!css!autoprefixer?browsers=last 2 versions'
+      // },
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         exclude: /node_modules/,
-        loader: 'file-loader',
-      }
+        loader: 'file-loader'
+      },
+      {
+            test: /\.css$/,
+            loader: "style!css"
+        }, {
+            test: /\.scss$/,
+            loader: "style!css!autoprefixer!sass"
+        }, {
+            test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/],
+            loader: 'file?name=fonts/[name].[ext]'
+        }
     ]
   },
-  plugins: []
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
+  ]
 };
 
 module.exports = config;
