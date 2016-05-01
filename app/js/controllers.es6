@@ -97,6 +97,10 @@ class MainController {
   toggleList() {
 
   }
+
+  selectUser(idx) {
+    this.currentUser = this.users[idx];
+  }
 };
 
 MainController.$inject = [

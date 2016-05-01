@@ -1,3 +1,7 @@
+.md-button {
+  line-height: inherit;
+}
+
 .wrapper {
   max-width: 1240px;
 }
@@ -21,6 +25,15 @@
     align-items: flex-start;
     padding-right: 0;
     border-bottom: 1px solid #f7f7f7;
+
+    .md-button {
+      padding: 0;
+    }
+
+    .md-list-item-inner {
+      height: 100%;
+      align-items: initial;
+    }
 
     .user_details {
       margin-left: 17px;

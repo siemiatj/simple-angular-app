@@ -26,19 +26,19 @@
   <section flex layout="row" class="main_content">
     <md-sidenav flex="nogrow" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" layout="column" class="users_list_wrap">
       <md-list layout="column">
-        <md-list-item ng-repeat="usr in ctrl.users">
-          <img src="http://placehold.it/60x60" class="user_photo"/>
-          <div flex layout="column" class="user_details">
-            <h5 class="user_name">{{ usr.name }}</h5>
-            <span class="user_username">{{ usr.username }}</span>
-            <span class="user_email">
-              <md-icon md-svg-icon="email"></md-icon>
-              <span>{{ usr.email }}</span>
-            </span>
-          </div>
-          <div class="list_indicator" ng-class="{selected: ctrl.currentUser.name == usr.name}">
-            <md-icon md-svg-icon="chevron_right"></md-icon>
-          </div>
+        <md-list-item ng-repeat="usr in ctrl.users" ng-click="ctrl.selectUser($index)">
+            <img src="http://placehold.it/60x60" class="user_photo"/>
+            <div flex layout="column" class="user_details">
+              <h5 class="user_name">{{ usr.name }}</h5>
+              <span class="user_username">{{ usr.username }}</span>
+              <span class="user_email">
+                <md-icon md-svg-icon="email"></md-icon>
+                <span>{{ usr.email }}</span>
+              </span>
+            </div>
+            <div class="list_indicator" ng-class="{selected: ctrl.currentUser.name == usr.name}">
+              <md-icon md-svg-icon="chevron_right"></md-icon>
+            </div>
         </md-list-item>
       </md-list>
     </md-sidenav>
