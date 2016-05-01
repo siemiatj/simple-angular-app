@@ -1,6 +1,11 @@
 const path              = require('path');
 const webpack           = require('webpack');
-const cwd = process.cwd();
+// const cwd = process.cwd();
+const PATHS = {
+  // app: path.join(__dirname, 'app'),
+  // build: path.join(__dirname, 'build')
+  assets: path.join(__dirname, 'app/assets')
+};
 
 const config = {
   entry: {
@@ -42,29 +47,48 @@ const config = {
       //   exclude: /node_modules/,
       //   loader: 'style!css!autoprefixer?browsers=last 2 versions'
       // },
+      // {
+      //   test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      //   exclude: [/node_modules/, /assets/],
+      //   loader: 'file-loader'
+      // },
+      // {
+      //   test: /\.svg|png|jpg$/,
+      //   loader: 'file?name=images/[name].[ext]'
+      // },
+      // {
+      //   test: /\.(jpg|png)$/,
+      //   loader: 'file?name=assets/[name].[ext]',
+      //   include: PATHS.assets
+      // },
       {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        exclude: /node_modules/,
-        loader: 'file-loader'
+        test: /\.svg$/,
+        loader: 'file',
+        include: PATHS.assets
       },
+      // { 
+      //   test: /\.(png|jpg)$/, 
+      //   loader: 'url-loader?limit=8192' 
+      // },
       {
-            test: /\.css$/,
-            loader: "style!css"
-        }, 
+        test: /\.css$/,
+        loader: 'style!css'
+      }, 
         // {
         //     test: /\.scss$/,
         //     loader: "style!css!sass"
         // }, 
-        {
-            test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/],
-            loader: 'file?name=fonts/[name].[ext]'
-        }
+      {
+        test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/],
+        loader: 'file?name=fonts/[name].[ext]',
+        include: /node_modules/
+      }
     ]
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
+      $: 'jquery',
+      jQuery: 'jquery'
     })
   ]
 };

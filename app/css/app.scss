@@ -22,6 +22,39 @@ span {
 
   md-list-item {
     height: 100px;
+    padding-right: 0;
+
+    .user_details {
+
+    }
+
+    .user_name {
+
+    }
+
+    .user_username {
+      color: #6B5686;
+      font-size: 12px;
+    }
+
+    .user_email {
+      svg {
+        fill: #32DBBE;
+      }
+    }
+
+    .list_indicator {
+      background-color: #32DBBE;
+      width: 20px;
+      height: 100%;
+      position: relative;
+
+      md-icon {
+        position: absolute;
+        top: 35px;
+        left: 5px;
+      }
+    }
   }
 
   img {
