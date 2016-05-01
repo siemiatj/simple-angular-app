@@ -2,18 +2,22 @@
 <html lang="en" ng-app="app">
 <head>
   <meta charset="utf-8">
-  <title>Angular Starter Kit</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Sample metarial angular app</title>
   <script src="/bundle.js"></script>
 </head>
 <body layout="column" layout-align="center">
 
 <div flex class="wrapper" ng-controller="mainController as ctrl">
+  <!--
+  <div class="bg_div"></div>
+  -->
   <div flex layout="row" class="topbar">
     <md-button class="menu" hide-gt-sm ng-click="ctrl.toggleList()" aria-label="Show User List">
       <md-icon md-svg-icon="menu" ></md-icon>
     </md-button>
     <div flex="nogrow" class="topbar-dropdown">
-      <img src="" hide-gt-sm />
+      <img src="/assets/client-logo-placeholder.png" hide-gt-sm />
       <span hide-gt-sm >{{ usr.name }}</span>
       <md-icon md-svg-icon="keyboard-arrow-down"></md-icon>
     </div>
@@ -22,10 +26,16 @@
     <md-sidenav flex="nogrow" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" layout="column" class="users_list_wrap">
       <md-list layout="column">
         <md-list-item ng-repeat="usr in ctrl.users">
-          {{ usr.name }}
-          {{ usr.username }}
-          {{ usr.email }}
-
+          <img src="placehold.it/60x60" class="user_photo"/>
+          <div flex layout="row" class="user_details">
+            <h3 class="user_name">{{ usr.name }}</h3>
+            <span class="user_website">{{ usr.username }}</span>
+            <span class="user_email">
+              <md-icon md-svg-icon="keyboard-arrow-down"></md-icon>
+              <strong>{{ usr.email }}</strong>
+            </span>
+          </div>
+          <div
           <!--
             <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
               <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
@@ -33,7 +43,7 @@
             </md-button>
           -->
           keyboard arrow right
-          
+
         </md-list-item>
       </md-list>
     </md-sidenav>

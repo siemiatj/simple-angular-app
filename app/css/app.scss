@@ -6,13 +6,28 @@ span {
   max-width: 1240px;
 }
 
+.bg_div {
+  background-color: #543A72;
+  position: absolute;
+  z-index: 1;
+}
+
 .topbar {
   height: 40px;
 }
 
 .users_list_wrap {
-  background-color: #bada55;
-  width: 200px;
+  background-color: white;
+  max-width: 320px;
+
+  md-list-item {
+    height: 100px;
+  }
+
+  img {
+    padding: 3px;
+    border: 1px solid #f7f7f7;
+  }
 }
 
 .user_content {
