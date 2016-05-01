@@ -28,15 +28,15 @@
       <md-list layout="column">
         <md-list-item ng-repeat="usr in ctrl.users">
           <img src="http://placehold.it/60x60" class="user_photo"/>
-          <div flex layout="row" class="user_details">
-            <h3 class="user_name">{{ usr.name }}</h3>
+          <div flex layout="column" class="user_details">
+            <h5 class="user_name">{{ usr.name }}</h5>
             <span class="user_username">{{ usr.username }}</span>
             <span class="user_email">
               <md-icon md-svg-icon="email"></md-icon>
-              <strong>{{ usr.email }}</strong>
+              <span>{{ usr.email }}</span>
             </span>
           </div>
-          <div class="list_indicator">
+          <div class="list_indicator" ng-class="{selected: ctrl.currentUser.name == usr.name}">
             <md-icon md-svg-icon="chevron_right"></md-icon>
           </div>
         </md-list-item>
@@ -46,7 +46,7 @@
       <div flex layout="row" layout-sm="column">
         <img src="" class="user_photo"/>
         <div flex layout="row">
-          <h3 class="user_name">{{ ctrl.currentUser.name }}</h3>
+          <h4 class="user_name">{{ ctrl.currentUser.name }}</h4>
           <span class="user_website">{{ ctrl.currentUser.website }}</span>
           <span hide-gt-sm class="user_company">
             <strong>{{ ctrl.currentUser.company.name }}</strong>

@@ -1,7 +1,3 @@
-span {
-  color: blue;
-}
-
 .wrapper {
   max-width: 1240px;
 }
@@ -22,14 +18,23 @@ span {
 
   md-list-item {
     height: 100px;
+    align-items: flex-start;
     padding-right: 0;
+    border-bottom: 1px solid #f7f7f7;
 
     .user_details {
+      margin-left: 17px;
+      margin-top: 20px;
 
+      span {
+        display: block;
+      }
     }
 
     .user_name {
-
+      font-size: 16px;
+      margin: 0 0 3px 0;
+      padding: 0;
     }
 
     .user_username {
@@ -38,28 +43,55 @@ span {
     }
 
     .user_email {
+      color: #000;
+      font-weight: 400;
+      font-size: 12px;
+      margin-top: 10px;
+
+      span {
+        display: inline-block;
+        position: relative;
+        top: 2px;
+      }
+
       svg {
+        margin-right: 10px;
         fill: #32DBBE;
       }
     }
 
     .list_indicator {
-      background-color: #32DBBE;
       width: 20px;
       height: 100%;
       position: relative;
 
+      &.selected {
+        background-color: #32DBBE;
+
+        md-icon svg {
+          fill: #fff;
+        }
+      }
+
       md-icon {
         position: absolute;
         top: 35px;
-        left: 5px;
+        left: -1px;
+
+        svg {
+          fill: #6B5686;
+        }
       }
     }
   }
 
   img {
-    padding: 3px;
+    padding: 5px;
+    margin-top: 15px;
+    width: 60px;
+    height: 60px;
     border: 1px solid #f7f7f7;
+    border-radius: 5px;
   }
 }
 
