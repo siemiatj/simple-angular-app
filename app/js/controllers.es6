@@ -84,7 +84,8 @@ class MainController {
         "userId": 1,
         "id": 3,
         "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-        "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+        "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut",
+        commentsCount: 0
       }
     ];
 
@@ -217,25 +218,25 @@ class MainController {
   toggleUserEditDialog(ev) {
     console.log('SHOOOW');
 
-      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
-      $mdDialog.show({
-        controller: DialogController,
-        templateUrl: 'dialog1.tmpl.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose:true,
-        fullscreen: useFullScreen
-      })
-      .then(function(answer) {
-        $scope.status = 'You said the information was "' + answer + '".';
-      }, function() {
-        $scope.status = 'You cancelled the dialog.';
-      });
-      $scope.$watch(function() {
-        return $mdMedia('xs') || $mdMedia('sm');
-      }, function(wantsFullScreen) {
-        $scope.customFullscreen = (wantsFullScreen === true);
-      });
+      // var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
+      // $mdDialog.show({
+      //   controller: DialogController,
+      //   templateUrl: 'dialog1.tmpl.html',
+      //   parent: angular.element(document.body),
+      //   targetEvent: ev,
+      //   clickOutsideToClose:true,
+      //   fullscreen: useFullScreen
+      // })
+      // .then(function(answer) {
+      //   $scope.status = 'You said the information was "' + answer + '".';
+      // }, function() {
+      //   $scope.status = 'You cancelled the dialog.';
+      // });
+      // $scope.$watch(function() {
+      //   return $mdMedia('xs') || $mdMedia('sm');
+      // }, function(wantsFullScreen) {
+      //   $scope.customFullscreen = (wantsFullScreen === true);
+      // });
   }
 };
 

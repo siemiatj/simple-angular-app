@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Sample metarial angular app</title>
-  <link rel='stylesheet' href="http://fonts.googleapis.com/css?family=Roboto:400,700">
+  <link rel='stylesheet' href="http://fonts.googleapis.com/css?family=Roboto:200,400,700">
   <script src="/bundle.js"></script>
 </head>
 <body layout="column" layout-align="center">
@@ -67,18 +67,24 @@
           </span>
         </div>
       </div>
-      <div flex layout="row" loyout-sm="column" class="user_content">
+      <div flex layout="row" layout-sm="column" class="user_content">
         <div flex class="users_posts">
           <h6>Latest Posts</h6>
           <md-list layout="column">
-            <md-list-item ng-repeat="post in ctrl.posts">
+            <md-list-item flex layout="column" ng-repeat="post in ctrl.posts">
               <span class="post_title">{{ post.title }}</span>
               <p class="post_body">{{ post.body }}</p>
-              <md-divider></md-divider>
+              <span class="divider"></span>
               <div class="comments_info">
                 <div class="comments_count">
-                  <md-icon md-svg-icon="comments"></md-icon>
-                  <span>{{ post.commentsCount || 0}}</span>
+                  <md-icon md-svg-icon="comment"></md-icon>
+                  <span>
+                    <ng-pluralize count="post.commentsCount"
+                                     when="{'0': 'No comments',
+                                         '1': '1 comment',
+                                         'other': '{} comments'}">
+                    </ng-pluralize>
+                  </span>
                 </div>
                 <div class="comments_controls" ng-if="post.commentsCount">
                   <md-icon md-svg-icon="expand_more" ng-if="!post.commentsVisible"></md-icon>
@@ -87,21 +93,15 @@
                   <span ng-if="post.commentsVisible">hide all</span>
                 </div>
               </div>
+              <span class="divider"></span>
             </md-list-item>
           </md-list>
         </div>
-        <div flex="none" flex-offset-gt-sm="30" class="users_photos">
+        <div class="users_photos">
           <h6>Photo album</h6>
-          <md-grid-list md-cols="3" md-gutter="5px" md-row-height="fit">
-            <md-grid-tile ng-repeat="photo in ctrl.photos">
-              <img src="{{ photo.thumbnailUrl }}" \>
-            </md-grid-tile>
-          </md-grid-list>
-          <md-divider></md-divider>
           <button class="users_photos_load">Load more</button>
         </div>
       </div>
-      <basic-directive variable="{{ text }}"></basic-directive>
     </div>
   </section>
 </div>

@@ -235,52 +235,87 @@
     .users_posts {
 
       md-list-item {
+        margin-top: 17px;
         margin-bottom: 20px;
+        padding: 0;
+        align-items: flex-start;
         background: #fff;
+      }
+
+      .divider {
+        display: block;
+        border-top: 1px solid #f6f6f6;
+        width: 100%;
       }
 
       .post_title {
         position: relative;
-        padding: 20px;
+        padding: 20px 30px;
         display: block;
-        font-size: 20px;
-        line-height: 24px;
+        font-size: 22px;
+        line-height: 30px;
+        text-align: left;
 
         &:before {
           position: absolute;
-          width: 4px;
-          height: 30px;
+          width: 8px;
+          height: 48px;
           background-color: #32DBBE;
-          top: 20px;
-          left: 0;
+          top: 24px;
+          left: 0px;
+          content: '';
         }
       }
 
       .post_body {
         display: block;
-        font-size: 12px;
-        line-height: 16px;
-        padding: 5px 20px 20px 20px;
+        font-size: 13px;
+        line-height: 22px;
+        padding: 0 30px 18px 30px;
       }
 
       .comments_info {
-        .comments_count {
-          md-icon {
+        font-size: 13px;
+        width: 100%;
 
+        md-icon {
+          svg {
+            fill: #32DBBE;
+          }
+        }
+
+        span {
+          display: inline-block;
+        }
+
+        .comments_count {
+          width: 50%;
+          display: inline-block;
+          float: left;
+          margin-top: 18px;
+          margin-bottom: 16px;
+
+          md-icon {
+            margin-right: 10px;
           }
 
           span {
-
           }
         }
 
         .comments_controls {
-          md-icon {
+          width: 50%;
+          display: inline-block;
+          float: right;
+          text-align: right;
+          margin-top: 18px;
+          margin-bottom: 16px;
 
+          md-icon {
+            margin-left: 15px;
           }
 
           span {
-
           }
         }
       }
@@ -288,6 +323,9 @@
 
     .users_photos {
       width: 270px;
+      margin-left: 30px;
+      background: white;
+      height: 200px;
 
       img {
         width: 60px;
