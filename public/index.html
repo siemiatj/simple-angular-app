@@ -57,7 +57,8 @@
       </md-list>
     </md-sidenav>
     <div flex layout="column" class="users_page">
-      <div flex layout="row" layout-sm="column" class="selected_user_bio">
+      <div layout="column" layout-gt-sm="row" class="selected_user_bio">
+
         <img src="http://placehold.it/130x130" class="user_photo"/>
         <div flex layout="column" class="user_details">
           <h4 class="user_name">{{ ctrl.currentUser.name }}</h4>
@@ -67,8 +68,9 @@
             {{ ctrl.currentUser.company.catchPhrase }}
           </span>
         </div>
+
       </div>
-      <div flex layout="row" layout-sm="column" class="user_content">
+      <div layout="column" layout-gt-sm="row" class="user_content">
         <div flex class="users_posts">
           <h6>Latest Posts</h6>
           <md-list layout="column">
