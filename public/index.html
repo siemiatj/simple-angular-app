@@ -17,8 +17,8 @@
     </md-button>
     <div class="topbar_dropdown_wrap" ng-click="ctrl.dropdownVisible = !ctrl.dropdownVisible">
       <div class="topbar_dropdown">
-        <img src="http://placehold.it/26x26" class="user_photo" show-gt-sm />
-        <span class="logged_name" show-gt-sm>{{ ctrl.loggedUser.name }}</span>
+        <img src="http://placehold.it/26x26" class="user_photo" hide show-gt-sm />
+        <span class="logged_name" hide show-gt-sm >{{ ctrl.loggedUser.name }}</span>
         <md-icon md-svg-icon="expand_more" ng-if="!ctrl.dropdownVisible"></md-icon>
         <md-icon md-svg-icon="expand_less" ng-if="ctrl.dropdownVisible"></md-icon>
       </div>
@@ -61,7 +61,7 @@
         <div flex layout="column" class="user_details">
           <h4 class="user_name">{{ ctrl.currentUser.name }}</h4>
           <span class="user_website">{{ ctrl.currentUser.website }}</span>
-          <span show-gt-sm class="user_company">
+          <span hide show-gt-sm class="user_company">
             <strong>{{ ctrl.currentUser.company.name }}</strong>
             {{ ctrl.currentUser.company.catchPhrase }}
           </span>
@@ -113,7 +113,15 @@
         </div>
         <div class="users_photos">
           <h6>Photo album</h6>
-          <button class="users_photos_load">Load more</button>
+          <div class="users_photos_wrap">
+            <div class="users_photos_list">
+              <div ng-repeat="photo in ctrl.photos track by $index">
+                <img src="{{ photo.thumbnailUrl }}" ng-click="ctrl.loadPhotoModal(photo.id)" \>
+              </div>
+            </div>
+            <md-divider></md-divider>
+            <button class="users_photos_load">Load more</button>
+          </div>
         </div>
       </div>
     </div>

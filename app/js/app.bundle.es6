@@ -5,6 +5,7 @@ import angularAnimate from 'angular-animate';
 import angularMaterial from 'angular-material';
 
 require('angular-material/angular-material.css');
+require('angular-material/layouts/angular-material.layout-attributes.scss');
 require('font-awesome/css/font-awesome.css');
 require('../css/app.scss');
 

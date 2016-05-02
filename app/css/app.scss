@@ -1,3 +1,5 @@
+@import "variables";
+
 .md-button {
   line-height: inherit;
 }
@@ -341,25 +343,42 @@
     }
 
     .users_photos {
-      width: 270px;
-      margin-left: 30px;
-      background: white;
-      height: 200px;
+      width: 100%;
 
-      img {
-        width: 60px;
-        height: 60px;
+      .users_photos_wrap {
+        background: #fff;
+        margin-top: 24px;
+        text-align: center;
+      }
+
+      .users_photos_list {
+        padding: 14px;
+      }
+
+      div {
         padding: 4px;
-        border: 1px solid #f7f7f7;
-        background-color: white;
+        display: inline-block;
+
+        img {
+          width: 80px;
+          height: 80px;
+          padding: 4px;
+          border: 1px solid #f7f7f7;
+          background-color: white;
+          cursor: pointer;
+        }
       }
 
       .users_photos_load {
         color: white;
         background-color: #32DBBE;
-        padding: 5px;
+        padding: 12px 28px;
         border-radius: 3px;
-        display: none;
+        font-size: 13px;
+        font-weight: 700;
+        margin: 16px 0;
+        border: none;
+        text-transform: uppercase;
       }
     }
 
@@ -378,6 +397,22 @@
         width: 20px;
         height: 3px;
         background-color: #32DBBE;
+      }
+    }
+  }
+}
+
+@media (min-width: $layout-breakpoint-gt-sm) {
+  .users_page {
+    .user_content {
+      .users_photos {
+        width: 270px;
+        margin-left: 30px;
+
+        div img {
+          width: 60px;
+          height: 60px;
+        }
       }
     }
   }
