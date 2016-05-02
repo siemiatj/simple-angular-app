@@ -38,8 +38,14 @@
 
 .lightbox_modal {
   md-toolbar {
+    background: white;
+    min-height: 20px;
+    padding: 20px;
+
     h4 {
       font-weight: 400;
+      margin: 0;
+      color: #543A72;
     }
   }
 

@@ -2,17 +2,41 @@
 
 /* Services */
 
-angular.module('app.services.basic-service', [])
-  .factory('basicService', ['$http', function($http) {
+angular.module('app.services.data-service', [])
+  .factory('dataService', ['$http', function($http) {
 
-    function doRequest() {
+    function getUsers() {
       return $http({
         method: 'GET',
-        url: 'http://jsonplaceholder.typicode.com/posts/1'
+        url: 'http://jsonplaceholder.typicode.com/users'
+      });
+    }
+
+    function getPosts() {
+      return $http({
+        method: 'GET',
+        url: 'http://jsonplaceholder.typicode.com/users'
+      });
+    }
+
+    function getComments(postid) {
+      return $http({
+        method: 'GET',
+        url: 'http://jsonplaceholder.typicode.com/users'
+      });
+    }
+
+    function getImages() {
+      return $http({
+        method: 'GET',
+        url: 'http://jsonplaceholder.typicode.com/users'
       });
     }
 
     return {
-      doRequest: doRequest
+      getUsers: getUsers,
+      getPosts: getPosts,
+      getComments: getComments,
+      getImages: getImages
     };
   }]);

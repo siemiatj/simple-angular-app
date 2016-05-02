@@ -32,7 +32,7 @@ angular.module('app.directives', [
 ]);
 
 angular.module('app.services', [
-  'app.services.basic-service'
+  'app.services.data-service'
 ]);
 
 const ICON_CHEVRON_L = require('../assets/ic_chevron_left.svg');
