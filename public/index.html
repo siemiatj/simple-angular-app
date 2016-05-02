@@ -17,8 +17,8 @@
     </md-button>
     <div class="topbar_dropdown_wrap" ng-click="ctrl.dropdownVisible = !ctrl.dropdownVisible">
       <div class="topbar_dropdown">
-        <img src="http://placehold.it/26x26" class="user_photo" hide show-gt-sm />
-        <span class="logged_name" hide show-gt-sm >{{ ctrl.loggedUser.name }}</span>
+        <img src="http://placehold.it/26x26" class="user_photo" hide show-gt-xs />
+        <span class="logged_name" hide show-gt-xs >{{ ctrl.loggedUser.name }}</span>
         <md-icon md-svg-icon="expand_more" ng-if="!ctrl.dropdownVisible"></md-icon>
         <md-icon md-svg-icon="expand_less" ng-if="ctrl.dropdownVisible"></md-icon>
       </div>
@@ -57,18 +57,16 @@
       </md-list>
     </md-sidenav>
     <div flex layout="column" class="users_page">
-      <div layout="column" layout-gt-sm="row" class="selected_user_bio">
-
-        <img src="http://placehold.it/130x130" class="user_photo"/>
-        <div flex layout="column" class="user_details">
+      <div layout="column" layout-gt-xs="row" class="selected_user_bio">
+        <img flex-order="2" flex-order-gt-xs="1" src="http://placehold.it/130x130" class="user_photo"/>
+        <div flex flex-order="1" flex-order-gt-xs="2" layout="column" class="user_details">
           <h4 class="user_name">{{ ctrl.currentUser.name }}</h4>
           <span class="user_website">{{ ctrl.currentUser.website }}</span>
-          <span hide show-gt-sm class="user_company">
+          <span hide show-gt-xs class="user_company">
             <strong>{{ ctrl.currentUser.company.name }}</strong>
             {{ ctrl.currentUser.company.catchPhrase }}
           </span>
         </div>
-
       </div>
       <div layout="column" layout-gt-sm="row" class="user_content">
         <div flex class="users_posts">

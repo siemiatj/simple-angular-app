@@ -22,7 +22,6 @@
 
     .logged_name {
       color: white;
-      display: block;
       float: left;
       margin-left: 20px;
       margin-top: 8px;
@@ -40,9 +39,9 @@
     color: #303030;
     background-color: #32DBBE;
     position: absolute;
-    top: 65px;
+    top: 42px;
     right: 0;
-    width: 230px;
+    width: 100%;
 
     .logged_username {
       font-size: 14px;
@@ -94,6 +93,11 @@
       .topbar_dropdown {
         padding-top: 15px;
       }
+    }
+
+    .topbar_user_details {
+      width: 230px;
+      top: 65px;
     }
   }
 }

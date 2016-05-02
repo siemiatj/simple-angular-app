@@ -32,9 +32,10 @@ md-backdrop.md-sidenav-backdrop {
 
 .users_page {
   z-index: 10;
-  padding: 93px 30px 30px 50px;
+  padding: 35px 10px 10px 10px;
 
   .selected_user_bio {
+    align-items: center;
     margin-bottom: 25px;
 
     .user_photo {
@@ -42,6 +43,7 @@ md-backdrop.md-sidenav-backdrop {
       border-radius: 5px;
       width: 130px;
       height: 130px;
+      margin-top: 20px;
     }
 
     .user_details {
@@ -57,6 +59,7 @@ md-backdrop.md-sidenav-backdrop {
 
       .user_website {
         color: #32DBBE;
+        text-align: center;
       }
 
       .user_company {
@@ -170,9 +173,6 @@ md-backdrop.md-sidenav-backdrop {
           padding: 25px;
         }
 
-        .comment_body {
-        }
-
         .comment_email {
           margin-top: 20px;
 
@@ -243,8 +243,31 @@ md-backdrop.md-sidenav-backdrop {
   }
 }
 
+@media (min-width: $layout-breakpoint-gt-xs) {
+  .users_page {
+    padding: 93px 30px 30px 50px;
+
+    .selected_user_bio {
+      align-items: flex-start;
+
+      .user_photo {
+        margin-top: 0;
+      }
+
+      .user_details {
+        padding-left: 20px;
+
+        .user_website {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: $layout-breakpoint-gt-sm) {
   .users_page {
+
     .user_content {
       .users_photos {
         width: 270px;
