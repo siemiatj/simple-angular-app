@@ -2,28 +2,29 @@
 
 /* Directives */
 
-import { debounce } from 'underscore';
-
-// import accordion from 'angular-ui-bootstrap/src/accordion';
-// import datepicker from 'angular-ui-bootstrap/src/datepicker';
-
-// angular.module('myModule', [accordion, datepicker]);
 
 const tpl = `
-<span>
-{{ variable }}
-</span>`;
+<div class="input_text">
+  <label for="{{ name }}">{{ name }}</label>
+  <input
+  type="text'"
+  name="{{ name }}"
+  ng-model="model"
+  >
+</div>`;
 
-angular.module('app.directives.basic-directive', [])
-  .directive('basicDirective', [
+angular.module('app.directives.text-input', [])
+  .directive('textInput', [
     function () {
       return {
         restrict: 'E',
         template: tpl,
         scope: {
-          variable: '@'
+          name: '@',
+          model: '=?'
         },
         link: function (scope) {
+          console.log('MODEL: ', scope.model);
         }
       };
     }

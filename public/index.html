@@ -23,6 +23,7 @@
         <md-icon md-svg-icon="expand_less" ng-if="ctrl.dropdownVisible"></md-icon>
       </div>
       <div class="topbar_user_details" ng-show="ctrl.dropdownVisible">
+        <md-icon md-svg-icon="account"></md-icon>
         <span class="logged_username">{{ ctrl.loggedUser.username }}</span>
         <md-divider></md-divider>
         <ul>
@@ -32,7 +33,7 @@
           <li>{{ ctrl.loggedUser.address.zipcode }}</li>
         </ul>
         <md-divider></md-divider>
-        <button ng-click="ctrl.toggleUserEditDialog($event)"></button>
+        <button ng-click="ctrl.toggleUserEditDialog($event)">Edit</button>
       </div>
     </div>
   </div>

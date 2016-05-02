@@ -1,9 +1,8 @@
 const path              = require('path');
 const webpack           = require('webpack');
-// const cwd = process.cwd();
 const PATHS = {
-  // app: path.join(__dirname, 'app'),
-  // build: path.join(__dirname, 'build')
+  app: path.join(__dirname, 'app'),
+  public: path.resolve(__dirname, 'public'),
   assets: path.join(__dirname, 'app/assets')
 };
 
@@ -12,7 +11,7 @@ const config = {
     app: './app/js/app.bundle.es6'
   },
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: PATHS.public,
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -74,6 +73,10 @@ const config = {
         test: /\.css$/,
         loader: 'style!css'
       }, 
+      {
+        test: /\.html$/,
+        loader: 'ngtemplate?relativeTo=' + PATHS.app + '/!html'
+      },
         // {
         //     test: /\.scss$/,
         //     loader: "style!css!sass"

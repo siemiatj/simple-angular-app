@@ -3,6 +3,7 @@
 /* Controllers */
 
 import { object, extendOwn } from 'underscore';
+const dialogTemplate = require('../views/editDialog.tpl.html');
 
 class MainController {
   constructor(...services) {
@@ -217,7 +218,7 @@ class MainController {
   }
 
   toggleList() {
-
+    console.log('show/hide menu');
   }
 
   selectUser(idx) {
@@ -225,33 +226,41 @@ class MainController {
   }
 
   toggleUserEditDialog(ev) {
-    console.log('SHOOOW');
+    let { $mdMedia, $mdDialog, $scope, loggedUser } = this;
+    const FULLSCREEN = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
 
-      // var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
-      // $mdDialog.show({
-      //   controller: DialogController,
-      //   templateUrl: 'dialog1.tmpl.html',
-      //   parent: angular.element(document.body),
-      //   targetEvent: ev,
-      //   clickOutsideToClose:true,
-      //   fullscreen: useFullScreen
-      // })
-      // .then(function(answer) {
-      //   $scope.status = 'You said the information was "' + answer + '".';
-      // }, function() {
-      //   $scope.status = 'You cancelled the dialog.';
-      // });
-      // $scope.$watch(function() {
-      //   return $mdMedia('xs') || $mdMedia('sm');
-      // }, function(wantsFullScreen) {
-      //   $scope.customFullscreen = (wantsFullScreen === true);
-      // });
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: dialogTemplate,
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+      fullscreen: FULLSCREEN,
+      resolve: {
+        userModel: () => {
+          return loggedUser;
+        }
+      }
+    })
+    .then(answer => {}, () => {
+    });
+    
+    // watch for resizing screen
+    $scope.$watch(function() {
+      return $mdMedia('xs') || $mdMedia('sm');
+    }, function(wantsFullScreen) {
+      $scope.customFullscreen = (wantsFullScreen === true);
+    });
+  }
+
+  loadPhotoModal(idx) {
+    console.log('show image');
   }
 };
 
 MainController.$inject = [
   '$scope',
-  '$mdBottomSheet',
+  '$mdMedia',
   '$mdSidenav', 
   '$mdDialog',
   'basicService'
@@ -259,3 +268,37 @@ MainController.$inject = [
 
 angular.module('app.controllers.main-controller', [])
   .controller('mainController', MainController);
+
+
+class DialogController {
+  constructor(...services) {
+    Object.assign(this, object(this.constructor.$inject, services));
+
+    this.$scope.userModel = extendOwn({}, this.userModel);
+    this.$scope.hide = this.hide.bind(this);
+    this.$scope.save = this.save.bind(this);
+    this.$scope.cancel = this.cancel.bind(this);
+  }
+
+  hide() {
+    this.$mdDialog.hide();
+  }
+
+  save() {
+    this.userModel = extendOwn(this.userModel, this.$scope.userModel);
+    this.$mdDialog.hide();
+  }
+
+  cancel() {
+    this.$mdDialog.cancel();
+  }
+}
+
+DialogController.$inject = [
+  '$scope',
+  '$mdDialog',
+  'userModel'
+];
+
+angular.module('app.controllers.dialog-controller', [])
+  .controller('dialogController', DialogController);

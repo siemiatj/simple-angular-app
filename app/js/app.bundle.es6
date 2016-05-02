@@ -22,11 +22,12 @@ angular.module('app', [
 ]);
 
 angular.module('app.controllers', [
-  'app.controllers.main-controller'
+  'app.controllers.main-controller',
+  'app.controllers.dialog-controller'
 ]);
 
 angular.module('app.directives', [
-  'app.directives.basic-directive'
+  'app.directives.text-input'
 ]);
 
 angular.module('app.services', [
