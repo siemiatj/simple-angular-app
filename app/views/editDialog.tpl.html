@@ -1,0 +1,44 @@
+<md-dialog class="edit_user_modal app_modal" aria-label="edit-user" ng-cloak>
+  <form>
+    <md-dialog-content>
+      <div class="usermodal_header">
+        <md-icon md-svg-icon="account"></md-icon>
+        Edit user info
+      </div>
+      <md-divider></md-divider>
+      <div class="usermodal_form_fields">
+        <div layout="row" layout-wrap>
+          <div flex="70">
+            <text-input model="userModel.username" name="username"></text-input>
+          </div>
+        </div>
+      </div>
+      <md-divider></md-divider>
+      <div class="usermodal_form_fields">
+        <div layout="row" layout-wrap>
+          <div flex="70">
+            <text-input model="userModel.address.street" name="street"></text-input>
+          </div>
+          <div flex="30">
+            <text-input model="userModel.address.suite" name="suite"></text-input>
+          </div>
+          <div flex="70">
+            <text-input model="userModel.address.city" name="city"></text-input>
+          </div>
+          <div flex="30">
+            <text-input model="userModel.address.zipcode" name="zipcode"></text-input>
+          </div>
+        </div>
+      </div>
+      <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button class="button_cancel" ng-click="cancel()">
+         Cancel
+        </md-button>
+        <md-button class="button_save" ng-click="save()">
+          Save
+        </md-button>
+      </md-dialog-actions>
+    </md-dialog-content>
+  </form>
+</md-dialog>

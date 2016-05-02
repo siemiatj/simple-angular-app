@@ -22,9 +22,6 @@ angular.module('app.directives.text-input', [])
         scope: {
           name: '@',
           model: '=?'
-        },
-        link: function (scope) {
-          console.log('MODEL: ', scope.model);
         }
       };
     }

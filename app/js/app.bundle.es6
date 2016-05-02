@@ -23,7 +23,8 @@ angular.module('app', [
 
 angular.module('app.controllers', [
   'app.controllers.main-controller',
-  'app.controllers.dialog-controller'
+  'app.controllers.dialog-controller',
+  'app.controllers.lightbox-controller'
 ]);
 
 angular.module('app.directives', [

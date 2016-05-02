@@ -3,11 +3,50 @@
 }
 
 .edit_user_modal {
+  max-width: 650px;
+  max-height: 100%;
+
   .usermodal_header {
     padding: 30px;
 
     md-icon {
-
+      svg {
+        fill: #543A72;
+      }
     }
+  }
+
+  .usermodal_form_fields {
+    padding: 30px;
+
+    &:nth-of-type(2n+1) {
+      .input_text {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .button_cancel {
+    border: 1px solid #f7f7f7;
+  }
+
+  .button_save {
+    color: #fff;
+    background-color: #543A72;
+  }
+}
+
+.lightbox_modal {
+  md-toolbar {
+    h4 {
+      font-weight: 400;
+    }
+  }
+
+  .lightbox_image_wrap {
+    padding: 20px;
+    width: 600px;
+    height: 600px;
+    overflow: hidden;
   }
 }

@@ -4,6 +4,7 @@
 
 import { object, extendOwn } from 'underscore';
 const dialogTemplate = require('../views/editDialog.tpl.html');
+const lightboxTemplate = require('../views/lightbox.tpl.html');
 
 class MainController {
   constructor(...services) {
@@ -241,9 +242,10 @@ class MainController {
           return loggedUser;
         }
       }
-    })
-    .then(answer => {}, () => {
     });
+    // we don't need those promises for now
+    // .then(answer => {}, () => {
+    // });
     
     // watch for resizing screen
     $scope.$watch(function() {
@@ -253,8 +255,30 @@ class MainController {
     });
   }
 
-  loadPhotoModal(idx) {
-    console.log('show image');
+  loadPhotoModal(ev, idx) {
+    let { $mdMedia, $mdDialog, $scope, photos } = this;
+    const FULLSCREEN = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
+
+    $mdDialog.show({
+      controller: LightboxController,
+      templateUrl: lightboxTemplate,
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+      fullscreen: FULLSCREEN,
+      resolve: {
+        image: () => {
+          return photos[idx];
+        }
+      }
+    })
+    
+    // watch for resizing screen
+    $scope.$watch(function() {
+      return $mdMedia('xs') || $mdMedia('sm');
+    }, function(wantsFullScreen) {
+      $scope.customFullscreen = (wantsFullScreen === true);
+    });
   }
 };
 
@@ -302,3 +326,26 @@ DialogController.$inject = [
 
 angular.module('app.controllers.dialog-controller', [])
   .controller('dialogController', DialogController);
+
+
+
+class LightboxController {
+  constructor(...services) {
+    Object.assign(this, object(this.constructor.$inject, services));
+
+    this.$scope.image = this.image;
+  }
+
+  hide() {
+    this.$mdDialog.hide();
+  }
+}
+
+LightboxController.$inject = [
+  '$scope',
+  '$mdDialog',
+  'image'
+];
+
+angular.module('app.controllers.lightbox-controller', [])
+  .controller('lightboxController', LightboxController);

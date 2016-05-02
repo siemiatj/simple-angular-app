@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Sample metarial angular app</title>
+  <title>Sample material angular app</title>
   <link rel='stylesheet' href="http://fonts.googleapis.com/css?family=Roboto:200,400,700">
   <script src="/bundle.js"></script>
 </head>
@@ -80,10 +80,11 @@
                 <div class="comments_count">
                   <md-icon md-svg-icon="comment"></md-icon>
                   <span>
-                    <ng-pluralize count="post.commentsCount"
-                                     when="{'0': 'No comments',
-                                         '1': '1 comment',
-                                         'other': '{} comments'}">
+                    <ng-pluralize 
+                      count="post.commentsCount"
+                      when="{'0': 'No comments',
+                        '1': '1 comment',
+                        'other': '{} comments'}">
                     </ng-pluralize>
                   </span>
                 </div>
@@ -117,7 +118,7 @@
           <div class="users_photos_wrap">
             <div class="users_photos_list">
               <div ng-repeat="photo in ctrl.photos track by $index">
-                <img src="{{ photo.thumbnailUrl }}" ng-click="ctrl.loadPhotoModal(photo.id)" \>
+                <img src="{{ photo.thumbnailUrl }}" ng-click="ctrl.loadPhotoModal($event, photo.id)" \>
               </div>
             </div>
             <md-divider></md-divider>

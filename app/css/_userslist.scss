@@ -1,0 +1,95 @@
+.users_list_wrap {
+  background-color: white;
+  max-width: 320px;
+
+  md-list {
+    padding: 0;
+  }
+
+  md-list-item {
+    height: 100px;
+    align-items: flex-start;
+    padding-right: 0;
+    border-bottom: 1px solid #f7f7f7;
+
+    .md-button {
+      padding: 0;
+    }
+
+    .md-list-item-inner {
+      height: 100%;
+      align-items: initial;
+    }
+
+    .user_details {
+      margin-left: 17px;
+      margin-top: 20px;
+
+      span {
+        display: block;
+      }
+    }
+
+    .user_name {
+      font-size: 16px;
+      margin: 0 0 3px 0;
+      padding: 0;
+    }
+
+    .user_username {
+      color: #6B5686;
+      font-size: 12px;
+    }
+
+    .user_email {
+      color: #000;
+      font-weight: 400;
+      font-size: 12px;
+      margin-top: 10px;
+
+      span {
+        display: inline-block;
+        position: relative;
+        top: 2px;
+      }
+
+      svg {
+        margin-right: 10px;
+        fill: #32DBBE;
+      }
+    }
+
+    .list_indicator {
+      width: 20px;
+      height: 100%;
+      position: relative;
+
+      &.selected {
+        background-color: #32DBBE;
+
+        md-icon svg {
+          fill: #fff;
+        }
+      }
+
+      md-icon {
+        position: absolute;
+        top: 35px;
+        left: -1px;
+
+        svg {
+          fill: #6B5686;
+        }
+      }
+    }
+  }
+
+  img {
+    padding: 5px;
+    margin-top: 15px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #f7f7f7;
+    border-radius: 5px;
+  }
+}
