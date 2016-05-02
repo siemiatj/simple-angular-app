@@ -86,7 +86,10 @@
                     </ng-pluralize>
                   </span>
                 </div>
-                <div class="comments_controls" ng-if="post.commentsCount">
+                <div class="comments_controls" 
+                ng-if="post.commentsCount"
+                ng-click="post.commentsVisible = !post.commentsVisible"
+                >
                   <md-icon md-svg-icon="expand_more" ng-if="!post.commentsVisible"></md-icon>
                   <md-icon md-svg-icon="expand_less" ng-if="post.commentsVisible"></md-icon>
                   <span ng-if="!post.commentsVisible">show all</span>
@@ -94,6 +97,17 @@
                 </div>
               </div>
               <span class="divider"></span>
+              <md-list layout="column" class="post_comments_list" ng-show="post.commentsVisible">
+                <md-list-item flex layout="column" ng-repeat="comment in post.comments">
+                  <p class="comment_body">
+                    {{ comment.body }}
+                  </p>
+                  <span class="comment_email">
+                    <md-icon md-svg-icon="email"></md-icon>
+                    {{ comment.email }}
+                  </span>
+                </md-list-item>
+              </md-list>
             </md-list-item>
           </md-list>
         </div>
