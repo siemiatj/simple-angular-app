@@ -12,24 +12,24 @@ angular.module('app.services.data-service', [])
       });
     }
 
-    function getPosts() {
+    function getPosts(userid) {
       return $http({
         method: 'GET',
-        url: 'http://jsonplaceholder.typicode.com/users'
+        url: 'http://jsonplaceholder.typicode.com/users/'+userid+'/posts'
       });
     }
 
     function getComments(postid) {
       return $http({
         method: 'GET',
-        url: 'http://jsonplaceholder.typicode.com/users'
+        url: 'http://jsonplaceholder.typicode.com/posts/'+postid+'/comments'
       });
     }
 
     function getImages() {
       return $http({
         method: 'GET',
-        url: 'http://jsonplaceholder.typicode.com/users'
+        url: 'http://jsonplaceholder.typicode.com/albums/1/photos'
       });
     }
 
