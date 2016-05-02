@@ -1,6 +1,6 @@
 .users_list_wrap {
   background-color: white;
-  max-width: 320px;
+  top: 65px;
 
   md-list {
     padding: 0;
@@ -91,5 +91,12 @@
     height: 60px;
     border: 1px solid #f7f7f7;
     border-radius: 5px;
+  }
+}
+
+@media (min-width: $layout-breakpoint-gt-sm) {
+  .users_list_wrap {
+    max-width: 320px;
+    top: 0;
   }
 }

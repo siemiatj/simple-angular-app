@@ -1,5 +1,5 @@
 .topbar {
-  height: 65px;
+  height: 42px;
   z-index: 50;
   position: relative;
   border-bottom: 1px solid #654C81;
@@ -7,12 +7,11 @@
   .topbar_dropdown_wrap {
     cursor: pointer;
     border-left: 1px solid #654C81;
-    width: 230px;
     height: 100%;
     float:right;
 
     .topbar_dropdown {
-      padding: 15px 10px 0 20px;
+      padding: 5px 10px 0 20px;
     }
 
     img {
@@ -81,6 +80,20 @@
       font-size: 13px;
       text-decoration: uppercase;
       font-weight: 200;
+    }
+  }
+}
+
+@media (min-width: $layout-breakpoint-gt-sm) {
+  .topbar {
+    height: 65px;
+
+    .topbar_dropdown_wrap {
+      width: 230px;
+
+      .topbar_dropdown {
+        padding-top: 15px;
+      }
     }
   }
 }

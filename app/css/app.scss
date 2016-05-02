@@ -8,6 +8,10 @@
   line-height: inherit;
 }
 
+md-backdrop.md-sidenav-backdrop {
+  display: none;
+}
+
 .wrapper {
   max-width: 1240px;
   background-color: #F6F6F6;
