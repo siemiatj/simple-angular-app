@@ -169,7 +169,7 @@ class MainController {
   }
 
   toggleList() {
-    console.log('show/hide menu');
+    this.$mdSidenav('left').toggle();
   }
 
   selectUser(idx) {
@@ -178,7 +178,6 @@ class MainController {
 
   toggleUserEditDialog(ev) {
     let { $mdMedia, $mdDialog, $scope, loggedUser } = this;
-    const FULLSCREEN = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
 
     $mdDialog.show({
       controller: DialogController,
@@ -186,7 +185,7 @@ class MainController {
       parent: angular.element(document.body),
       targetEvent: ev,
       clickOutsideToClose:true,
-      fullscreen: FULLSCREEN,
+      fullscreen: false,
       resolve: {
         userModel: () => {
           return loggedUser;
@@ -196,18 +195,10 @@ class MainController {
     // we don't need those promises for now
     // .then(answer => {}, () => {
     // });
-    
-    // watch for resizing screen
-    $scope.$watch(function() {
-      return $mdMedia('xs') || $mdMedia('sm');
-    }, function(wantsFullScreen) {
-      $scope.customFullscreen = (wantsFullScreen === true);
-    });
   }
 
   loadPhotoModal(ev, idx) {
     let { $mdMedia, $mdDialog, $scope, photos } = this;
-    const FULLSCREEN = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
 
     $mdDialog.show({
       controller: LightboxController,
@@ -215,20 +206,13 @@ class MainController {
       parent: angular.element(document.body),
       targetEvent: ev,
       clickOutsideToClose:true,
-      fullscreen: FULLSCREEN,
+      fullscreen: false,
       resolve: {
         image: () => {
           return photos[idx];
         }
       }
     })
-    
-    // watch for resizing screen
-    $scope.$watch(function() {
-      return $mdMedia('xs') || $mdMedia('sm');
-    }, function(wantsFullScreen) {
-      $scope.customFullscreen = (wantsFullScreen === true);
-    });
   }
 };
 
@@ -284,6 +268,7 @@ class LightboxController {
     Object.assign(this, object(this.constructor.$inject, services));
 
     this.$scope.image = this.image;
+    this.$scope.hide = this.hide.bind(this);
   }
 
   hide() {

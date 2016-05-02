@@ -43,6 +43,7 @@ const ICON_MENU      = require('../assets/ic_menu.svg');
 const ICON_EMAIL     = require('../assets/ic_email.svg');
 const ICON_ACCOUNT   = require('../assets/ic_account.svg');
 const ICON_COMMENT   = require('../assets/ic_comment.svg');
+const ICON_CLOSE     = require('../assets/ic_close.svg');
 
 angular.module('app').config(function($mdIconProvider){
   $mdIconProvider
@@ -51,7 +52,8 @@ angular.module('app').config(function($mdIconProvider){
   .icon('expand_more', ICON_EXPAND_M, 24)
   .icon('expand_less', ICON_EXPAND_L, 24)
   .icon('menu', ICON_MENU, 24)
-  .icon('email', ICON_EMAIL, 24)
+  .icon('email', ICON_EMAIL, 20)
   .icon('account', ICON_ACCOUNT, 24)
-  .icon('comment', ICON_COMMENT, 24);
+  .icon('comment', ICON_COMMENT, 24)
+  .icon('close', ICON_CLOSE, 24);
 });

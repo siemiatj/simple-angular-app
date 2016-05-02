@@ -1,6 +1,9 @@
 <md-dialog class="lightbox_modal app_modal" aria-label="show-photo" ng-cloak>
     <md-toolbar>
         <h4>{{ image.title }}</h4>
+        <md-button class="md-icon-button" ng-click="hide()">
+          <md-icon md-svg-icon="close" aria-label="Close dialog"></md-icon>
+        </md-button>
     </md-toolbar>
   <md-dialog-content>
     <div class="lightbox_image_wrap">
