@@ -3,7 +3,7 @@ I wanted to learn Material Design as well as improve my webpack knowledge and th
 with RWD design leveraging public JSON API's.
 
 ## Setup 
-You need node with npm and `grunt-cli` installed. Then run:
+You need node with npm installed. Then run:
 
 `npm install`
 
