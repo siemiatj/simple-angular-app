@@ -2,6 +2,8 @@
 
 /* Services */
 
+import Redux from 'redux';
+
 angular.module('app.services.data-service', [])
   .factory('dataService', ['$http', function($http) {
 
@@ -40,3 +42,36 @@ angular.module('app.services.data-service', [])
       getImages: getImages
     };
   }]);
+
+angular.module('app.services.redux', [])
+  .service('Redux', function () {
+    return Redux;
+  });
+
+angular.module('app.service.list-reducer')
+  .service('listReducer', function () {
+    return function(state = {list: []}, action) {
+      switch (action.type) {
+        case 'ADD_ITEM':
+          state.list.push({value: '', added: false});
+          return state;
+        // case 'REMOVE_ITEM':
+        //   state.list.splice(action.index, 1);
+        //   return state;
+        default:
+          return state;
+      }
+    }
+  });
+
+angular.module('app.services.list-store')
+  .service('listStore', [
+    'Redux', 
+    'listReducer', 
+    function (Redux, listReducer) {
+      let initialState = {
+        list: []
+      };
+      return Redux.createStore(listReducer, initialState);
+    }
+  ]);

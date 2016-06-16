@@ -46,6 +46,8 @@
     "angular-aria": "^1.5.5",
     "angular-material": "^1.0.7",
     "font-awesome": "^4.6.1",
+    "immutable": "^3.8.1",
+    "redux": "^3.5.2",
     "requirejs": "^2.2.0"
   }
 }
