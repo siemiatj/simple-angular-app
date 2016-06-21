@@ -1,15 +1,25 @@
 ## What & why ?
-I wanted to learn Material Design as well as improve my webpack knowledge and that's how this project came to life. Simple app
-with RWD design leveraging public JSON API's.
+This is a simple app built to learn Google's Material design and experiment with Webpack. 
+Leverages public JSON API's with some placeholder data:
+* http://jsonplaceholder.typicode.com
+* http://placehold.it
+
+## How ?
+
+Bootstrapped using [angular-modern-boilerplate](https://github.com/siemiatj/angular-modern-boilerplate)
+and with :
+
+* Angular
+* [Angular Material](https://material.angularjs.org/latest/)
+* Webpack
+* Babel
 
 ## Setup 
 You need node with npm installed. Then run:
 
 `npm install`
 
-to install the dependencies.
-
-Then run :
+to install the dependencies, and :
 
 `npm start`
 
