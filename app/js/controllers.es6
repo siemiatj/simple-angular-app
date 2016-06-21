@@ -17,20 +17,30 @@ class MainController {
     this.currentUser = null;
     this.loggedUser = null;
 
+    let { applicationStore } = this;
+    let assignUsers = () => {
+      this.users = applicationStore.getState();
+      this.currentUser = this.users[0];
+      this.loggedUser = extendOwn({}, this.currentUser);
+    };
+
+    applicationStore.subscribe(assignUsers);
+
     this.getUsers();
     this.getPhotos();
   }
 
   getUsers() {
-    const { dataService } = this;
+    const { dataService, applicationStore } = this;
 
     dataService.getUsers()
       .then((resp) => {
-        this.users = resp.data;
-        this.currentUser = this.users[0];
-        this.loggedUser = extendOwn({}, this.users[0]);
+        applicationStore.dispatch({
+          type: 'ADD_USERS',
+          data: resp.data
+        });
 
-        this.getPosts(this.currentUser.id)
+        this.getPosts(this.currentUser.id);
       }, () => {
         console.error('Error fetching data');
       });
@@ -112,7 +122,7 @@ class MainController {
           return photos[idx];
         }
       }
-    })
+    });
   }
 };
 
@@ -121,7 +131,8 @@ MainController.$inject = [
   '$mdMedia',
   '$mdSidenav', 
   '$mdDialog',
-  'dataService'
+  'dataService',
+  'applicationStore'
 ];
 
 angular.module('app.controllers.main-controller', [])
