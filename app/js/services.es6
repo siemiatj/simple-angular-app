@@ -2,7 +2,7 @@
 
 /* Services */
 
-import Redux from 'redux';
+import * as Redux from 'redux';
 
 angular.module('app.services.data-service', [])
   .factory('dataService', ['$http', function($http) {
@@ -48,52 +48,23 @@ angular.module('app.services.redux', [])
     return Redux;
   });
 
-angular.module('app.service.list-reducer')
-  .service('listReducer', function () {
-    return function(state = { list: []}, action ) {
-      switch (action.type) {
-        case 'ADD_ITEM':
-          return [...state, action.data];
-          // state.list.push({ value: '', added: false });
-          // return state;
-        // case 'REMOVE_ITEM':
-        //   state.list.splice(action.index, 1);
-        //   return state;
-        default:
-          return state;
-      }
-    };
-  });
-
-angular.module('app.services.list-store')
-  .service('listStore', [
-    'Redux', 
-    'listReducer', 
-    function (Redux, listReducer) {
-      let initialState = {
-        list: []
-      };
-      return Redux.createStore(listReducer, initialState);
+angular.module('app.services.users-reducer', [])
+.service('usersReducer', function () {
+  return function(state, action) {
+    switch (action.type) {
+      case 'ADD_USERS':
+        return [].concat(state, action.data);
+      default:
+        return state;
     }
-  ]);
+  };
+});
 
-// angular.module('app.services.current-user-store').service('currentUserStore', function () {
-//   return function(state = { list: Immutable.List([])}, action ) {
-//     switch (action.type) {
-//       case 'ADD_ITEM':
-//         state.list = state.list.push(Immutable.Map({ value: '', added: false }));
-//         return state;
-//       case 'REMOVE_ITEM':
-//         state.list = state.list.splice(action.index, 1);
-//         return state;
-//       case 'CONFIRM_ITEM':
-//         state.list = state.list.setIn([action.index, 'added'] ,true);
-//         return state;
-//       case 'MODIFY_ITEM':
-//         state.list = state.list.setIn([action.index, 'value'], action.value);
-//         return state;
-//       default:
-//         return state;
-//     }
-//   };
-// });
+angular.module('app.services.application-store', [])
+  .service('applicationStore', [
+    'Redux',
+    'usersReducer',
+    function (Rdx, usersReducer) {
+      let initialState = [];
+      return Rdx.createStore(usersReducer, initialState);
+  }]);

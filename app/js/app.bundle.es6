@@ -29,7 +29,9 @@ angular.module('app.directives', [
 
 angular.module('app.services', [
   'app.services.data-service',
-  'app.services.redux'
+  'app.services.redux',
+  'app.services.users-reducer',
+  'app.services.application-store'
 ]);
 
 const ICON_CHEVRON_L = require('../assets/ic_chevron_left.svg');
