@@ -50,18 +50,19 @@ angular.module('app.services.redux', [])
 
 angular.module('app.service.list-reducer')
   .service('listReducer', function () {
-    return function(state = {list: []}, action) {
+    return function(state = { list: []}, action ) {
       switch (action.type) {
         case 'ADD_ITEM':
-          state.list.push({value: '', added: false});
-          return state;
+          return [...state, action.data];
+          // state.list.push({ value: '', added: false });
+          // return state;
         // case 'REMOVE_ITEM':
         //   state.list.splice(action.index, 1);
         //   return state;
         default:
           return state;
       }
-    }
+    };
   });
 
 angular.module('app.services.list-store')
@@ -75,3 +76,24 @@ angular.module('app.services.list-store')
       return Redux.createStore(listReducer, initialState);
     }
   ]);
+
+// angular.module('app.services.current-user-store').service('currentUserStore', function () {
+//   return function(state = { list: Immutable.List([])}, action ) {
+//     switch (action.type) {
+//       case 'ADD_ITEM':
+//         state.list = state.list.push(Immutable.Map({ value: '', added: false }));
+//         return state;
+//       case 'REMOVE_ITEM':
+//         state.list = state.list.splice(action.index, 1);
+//         return state;
+//       case 'CONFIRM_ITEM':
+//         state.list = state.list.setIn([action.index, 'added'] ,true);
+//         return state;
+//       case 'MODIFY_ITEM':
+//         state.list = state.list.setIn([action.index, 'value'], action.value);
+//         return state;
+//       default:
+//         return state;
+//     }
+//   };
+// });
