@@ -4,12 +4,15 @@ Leverages public JSON API's with some placeholder data:
 * http://jsonplaceholder.typicode.com
 * http://placehold.it
 
+After a while Redux was added as an experimental data layer.
+
 ## How ?
 
 Bootstrapped using [angular-modern-boilerplate](https://github.com/siemiatj/angular-modern-boilerplate)
 and with :
 
 * Angular
+* Redux
 * [Angular Material](https://material.angularjs.org/latest/)
 * Webpack
 * Babel
