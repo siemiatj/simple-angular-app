@@ -19,8 +19,8 @@ class MainController {
 
     let { applicationStore } = this;
     let assignUsers = () => {
-      this.users = applicationStore.getState();
-      this.currentUser = this.users[0];
+      this.users = applicationStore.getState().users.toJS();
+      this.currentUser = applicationStore.getState().users.get(0).toJS();
       this.loggedUser = extendOwn({}, this.currentUser);
     };
 

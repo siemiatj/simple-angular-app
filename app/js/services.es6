@@ -3,6 +3,7 @@
 /* Services */
 
 import * as Redux from 'redux';
+import Immutable from 'immutable';
 
 angular.module('app.services.data-service', [])
   .factory('dataService', ['$http', function($http) {
@@ -53,7 +54,10 @@ angular.module('app.services.users-reducer', [])
   return function(state, action) {
     switch (action.type) {
       case 'ADD_USERS':
-        return [].concat(state, action.data);
+        action.data.forEach(usr => {
+          state.users = state.users.push(Immutable.Map(usr));
+        });
+        return state;
       default:
         return state;
     }
@@ -65,6 +69,8 @@ angular.module('app.services.application-store', [])
     'Redux',
     'usersReducer',
     function (Rdx, usersReducer) {
-      let initialState = [];
+      let initialState = {
+        users: Immutable.List([])
+      };
       return Rdx.createStore(usersReducer, initialState);
   }]);
