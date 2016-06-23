@@ -4,15 +4,18 @@ Leverages public JSON API's with some placeholder data:
 * http://jsonplaceholder.typicode.com
 * http://placehold.it
 
-After a while Redux was added as an experimental data layer.
+As an experiment some data is stored in a Redux store as an Immutable structure.
+Just remember that it's a very naive implementation. To get all the sweet
+features and better experience you should use something like [ng-redux](https://github.com/angular-redux/ng-redux)
 
 ## How ?
 
 Bootstrapped using [angular-modern-boilerplate](https://github.com/siemiatj/angular-modern-boilerplate)
-and with :
+with :
 
 * Angular
 * Redux
+* ImmutableJS
 * [Angular Material](https://material.angularjs.org/latest/)
 * Webpack
 * Babel
