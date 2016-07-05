@@ -1,10 +1,16 @@
 {
   "name": "simple-angular-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": false,
+  "description": "Simple Angular material application",
+  "author": "Jakub Siemiatkowski <kuba@saskla.cz>",
   "repository": {
     "type": "git",
     "url": "https://github.com/siemiatj/simple-angular-app.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siemiatj/simple-angular-app/issues"
   },
   "scripts": {
     "server": "webpack-dev-server --history-api-fallback --inline --progress",
